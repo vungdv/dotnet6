@@ -1,0 +1,33 @@
+@model IList<airproject.domain.Domain.Location>
+
+@{
+    ViewData["Title"] = "Index";
+    var cities = new List<SelectListItem>
+    {
+        new SelectListItem("Please select a city", ""),
+        new SelectListItem("New York", "New York"),
+        new SelectListItem("Boston", "Boston"),
+        new SelectListItem("Chicago", "Chicago")
+    };
+    var sorts = new List<SelectListItem>
+    {
+        new SelectListItem("desc", "desc"),
+        new SelectListItem("asc", "asc")
+    };
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div>@Html.DropDownList("city", cities, new{@class="input"})</div>
+    @Html.ValidationMessage("city", new {@class="text-danger"})
+
+    <div>@Html.DropDownList("sort", sorts, new{@class="input"})</div>
+    @Html.ValidationMessage("sort", new {@class="text-danger"})
+
+    @if (Model != null)
+        @foreach (var location in Model)
+        {
+            <div>@Html.DisplayFor(m => location)</div>
+        }
+}

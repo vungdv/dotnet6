@@ -1,0 +1,9 @@
+@model airproject.domain.Domain.Location
+
+<div>@Html.DisplayFor(m=>m.City)</div>
+<div>
+    @foreach(var p in Model.Parameters)
+    {
+        @Html.DisplayFor(m=> p)
+    }
+</div>
