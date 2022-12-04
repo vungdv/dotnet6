@@ -17,7 +17,7 @@ namespace airproject.domain.test
             var result = Assert.Throws<FluentValidation.ValidationException>(() => new QueryAirConditionForCityCommand(validator, city, sort));
 
             //Assert
-            result.Message.Should().Be($"Validation failed: {Environment.NewLine} -- City: 'City' must not be empty.");            
+            result.Message.Should().Be($"Validation failed: {Environment.NewLine} -- City: 'City' must not be empty.");
         }
     }
 }

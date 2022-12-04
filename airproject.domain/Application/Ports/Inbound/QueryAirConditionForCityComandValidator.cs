@@ -19,7 +19,6 @@ namespace airproject.domain.Application.Ports.Inbound
         public string City { get; set; } = string.Empty;
 
         public string Sort { get; set; } = "desc";
-
     }
 
     public class QueryAirConditionForCityCommandValidator : AbstractValidator<QueryAirConditionForCityCommand>

@@ -11,8 +11,8 @@ namespace airproject.domain.Application.Services
 
     public class RequestStore : IRequestStore
     {
-        ConcurrentStack<Tuple<Type, Type, object>> _store = new ConcurrentStack<Tuple<Type, Type, object>>();
-        
+        readonly ConcurrentStack<Tuple<Type, Type, object>> _store = new();
+
         public Tuple<Type, Type, object>? GetCommand(int index)
         {
             return _store.Skip(index).FirstOrDefault();

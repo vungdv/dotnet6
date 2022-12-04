@@ -13,8 +13,7 @@ namespace airproject.domain.Validation
 
         protected void ValidateSelf()
         {
-            var instance = this as T;
-            if (instance != null)
+            if (this is T instance)
             {
                 _validator?.ValidateAndThrow(instance);
             }
