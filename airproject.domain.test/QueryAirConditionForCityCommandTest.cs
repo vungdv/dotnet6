@@ -10,14 +10,14 @@ namespace airproject.domain.test
         {
             //Arrange
             var city = string.Empty;
-            var sort = "desc";
+            const string sort = "desc";
             var validator = new QueryAirConditionForCityCommandValidator();
 
             //Act
             var result = Assert.Throws<FluentValidation.ValidationException>(() => new QueryAirConditionForCityCommand(validator, city, sort));
-            
+
             //Assert
-            result.Message.Should().Be("Validation failed: \r\n -- City: 'City' must not be empty.");            
+            result.Message.Should().Be($"Validation failed: {Environment.NewLine} -- City: 'City' must not be empty.");            
         }
     }
 }
